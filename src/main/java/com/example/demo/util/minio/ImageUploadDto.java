@@ -1,7 +1,6 @@
-package com.example.demo.util.Minio;
+package com.example.demo.util.minio;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 public class ImageUploadDto {

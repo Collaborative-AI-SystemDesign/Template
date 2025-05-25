@@ -1,4 +1,4 @@
-package com.example.demo.util.Minio;
+package com.example.demo.util.minio;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.ObjectMetadata;
@@ -7,7 +7,6 @@ import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
-
 
 import java.io.IOException;
 import java.util.UUID;
@@ -24,7 +23,7 @@ public class MinioUtil {
     /**
      * Uploads a file to MinIO and returns the image upload details.
      *
-     * @param file   the file to upload
+     * @param file the file to upload
      * @param DOMAIN the domain to use for the uploaded file
      * @return an ImageUploadDto containing the UUID and URL of the uploaded image
      * @throws IOException if an error occurs during file upload
