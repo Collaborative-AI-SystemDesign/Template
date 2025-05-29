@@ -38,6 +38,26 @@ services:
         MINIO_ROOT_PASSWORD: sd_password
     command: server /data --console-address ":9001" # 	데이터 저장 경로 설정 및 웹 콘솔 포트 지정
 
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      #      - ./prometheus/alert_rules.yml:/etc/prometheus/alert_rules.yml:ro
+      - ./prometheus/data:/data
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/data:/data
+    depends_on:
+      - prometheus
+
 volumes:
   mysql_data:
   redis_data:
