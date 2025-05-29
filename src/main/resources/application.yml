@@ -37,7 +37,11 @@ rabbitmq:
   routing:
     key: key
 
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 cloud:
   aws:
