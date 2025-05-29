@@ -5,14 +5,14 @@ global:
   # scrape_timeout is set to the global default (10s).
 
 # Alertmanager configuration
-alerting:
-  alertmanagers:
-    - static_configs:
-        - targets:
+#alerting:
+#  alertmanagers:
+#    - static_configs:
+#        - targets:
           # - alertmanager:9093
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
-rule_files:
+#rule_files:
 # - "first_rules.yml"
 # - "second_rules.yml"
 
@@ -25,10 +25,10 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-      - targets: ["localhost:9090"]
+      - targets: ["prometheus:9090"]
 
   - job_name: "spring-actuator"
     metrics_path: '/actuator/prometheus'
     scrape_interval: 1s
     static_configs:
-      - targets: ['localhost:8080']
+      - targets: ['docker-spring:8080']
