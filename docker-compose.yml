@@ -15,6 +15,18 @@ services:
       MYSQL_USER: sd_user
       MYSQL_PASSWORD: sd_password
 
+  mongodb:
+    image: mongo:latest
+    container_name: sd_mongodb_container
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: sd_root
+      MONGO_INITDB_ROOT_PASSWORD: sd_root_password
+    volumes:
+      - mongodb_data:/data/db # 데이터 영속성을 위한 볼륨 마운트
+
+
   redis:
     image: redis:latest
     container_name: sd_redis_container
@@ -70,4 +82,5 @@ services:
 
 volumes:
   mysql_data:
+  mongodb_data:
   redis_data:
